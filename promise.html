@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>PROMISES</h1>
+  </body>
+</html>
+<script>
+  // var myPromise = new Promise(function (resolve, reject) {
+  //   resolve("has been resolved");
+  // });
+  // console.log(myPromise);
+
+  function bankAtm(pin) {
+    var myPromise = new Promise(function (resolve, reject) {
+      if (pin == 1234) {
+        resolve("CORRECT");
+      } else {
+        reject("INCORRECT");
+      }
+    });
+    return myPromise;
+  }
+ 
+
+  var ans = bankAtm(1234);
+  console.log(ans);
+</script>
