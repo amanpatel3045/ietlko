@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Replace</title>
+  </head>
+  <body>
+    <h1>USING .then and .catch instead of resolve and reject</h1>
+  </body>
+</html>
+<script>
+  function bankAtm(pin) {
+    var myPromise = new Promise(function (resolve, reject) {
+      if (pin == 1234) {
+        resolve("CORRECT");
+      } else {
+        reject("INCORRECT");
+      }
+    });
+    return myPromise;
+  }
+
+  var returnPromise = bankAtm(1234);
+
+  returnPromise.then(function (res) {
+    console.log(res, "res");
+  });
+
+  returnPromise.catch(function (err) {
+    console.log(err, "err");
+  });
+</script>
