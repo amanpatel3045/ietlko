@@ -5,14 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script defer src="./index.js"></script>
   </head>
   <body>
-    <h2>Fetch</h2>
-
-    <div id="content">
-     
-      </div>
-    </div>
+    <input type="text" />
+    <button onclick="getData()">submit</button>
   </body>
 </html>
+<script>
+  async function getData() {
+    try {
+      let api_key = "2b57645";
+
+      let url = "http://www.omdbapi.com/?i=tt3896198&apikey=${api_key}";
+      let res = await fetch(url);
+      let data = await res.json;
+    //   console.log(data);
+      console.log(url);
+    } catch (err) {
+    //   console.log(err,'err');
+    }
+  }
+  getData();
+</script>
