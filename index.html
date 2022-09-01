@@ -1,29 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <input type="text" />
-    <button onclick="getData()">submit</button>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Throw Dice</title>
+    <style>
+        #parent{
+            display: flex;
+            justify-content: space-around;
+            width: 50%;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        #parent > div{
+            border: 2px solid black;
+            height: 100px;
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        #roll{
+            display: flex;
+            margin: auto;
+            margin-top: 40px;
+            padding: 8px;
+            font-weight: bold;
+            border: none;
+            background-color: rgb(129, 170, 254);
+            border-radius: 5px;
+        }
+
+        #roll:hover{
+            cursor: pointer;
+            background-color: rgb(86, 141, 253);
+            transform: scale(1.1);
+        }
+
+        #names{
+            display: flex;
+            justify-content: space-around;
+            width: 50%;
+            margin: auto;
+            margin-top: 30px;
+            font-weight: bold;
+            font-size: 20px;
+            margin-top: 15px;
+        }
+
+        #winner{
+            text-align: center;
+            font-size: 30px;
+            font-weight:bold;
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="winner">Winner</div>
+
+    <div id="parent">
+        <div id="member-1"></div>
+        <div id="member-2"></div>
+        <div id="member-3"></div>
+    </div>
+
+    <div id="names">
+        <div>Member A</div>
+        <div>Member B</div>
+        <div>Member C</div>
+    </div>
+
+    <button id="roll">ROLL THE DICE</button>
+    
+</body>
 </html>
 <script>
-  async function getData() {
-    try {
-      let api_key = "2b57645";
 
-      let url = "http://www.omdbapi.com/?i=tt3896198&apikey=${api_key}";
-      let res = await fetch(url);
-      let data = await res.json;
-    //   console.log(data);
-      console.log(url);
-    } catch (err) {
-    //   console.log(err,'err');
+    document.getElementById("roll").addEventListener("click", letsRoll);
+
+    function letsRoll(){
+        var a = Math.floor(Math.random() * 6) + 1;
+        var b = Math.floor(Math.random() * 6) + 1
+        var c = Math.floor(Math.random() * (6 - 1 + 1) + 1)
+
+        document.getElementById("member-1").innerText = a;
+        document.getElementById("member-2").innerText = b;
+        document.getElementById("member-3").innerText = c;
+
+        var arr = [ ["member-1", a], ["member-2", b], ["member-3", c] ]
+
+
+        arr.sort(function(a , b){
+            return b[1] - a[1];
+        }); 
+
+
+// For Winner code
+        if(arr[0][0] == "member-1"){
+            document.getElementById("member-1").style.background = "green";
+            document.getElementById("winner").innerText = "Winner is Member A"
+    
+        }else if(arr[0][0] == "member-2"){
+            document.getElementById("member-2").style.background = "green";
+            document.getElementById("winner").innerText = "Winner is Member B"
+
+        }else{
+            document.getElementById("member-3").style.background = "green";
+            document.getElementById("winner").innerText = "Winner is Member C"
+        }
+
+// for second winner code
+
+
+        if(arr[1][0] == "member-1"){
+            document.getElementById("member-1").style.background = "yellow";
+    
+        }else if(arr[1][0] == "member-2"){
+            document.getElementById("member-2").style.background = "yellow";
+
+        }else{
+            document.getElementById("member-3").style.background = "yellow";
+        }
+
+// for third winner code
+
+        if(arr[2][0] == "member-1"){
+            document.getElementById("member-1").style.background = "red";
+    
+        }else if(arr[2][0] == "member-2"){
+            document.getElementById("member-2").style.background = "red";
+
+        }else{
+            document.getElementById("member-3").style.background = "red";
+        }
+
+
+// for tie up code
+
+        if(a == b && a == c){
+            document.getElementById("member-1").style.background = "blue";
+            document.getElementById("member-2").style.background = "blue";
+            document.getElementById("member-3").style.background = "blue";
+            document.getElementById("winner").innerText = "Its Draw"   
+        }
+
+
+        if(a == b){
+            document.getElementById("member-1").style.background = "blue";
+            document.getElementById("member-2").style.background = "blue";
+
+            if(arr[0][0] == "member-1"){  
+                document.getElementById("winner").innerText = "Its Draw"
+            }
+        }
+
+
+        if(a == c){
+            document.getElementById("member-1").style.background = "blue";
+            document.getElementById("member-3").style.background = "blue";
+            if(arr[0][0] == "member-1"){  
+                document.getElementById("winner").innerText = "Its Draw"
+            }  
+        }
+
+
+        if(b == c){
+            document.getElementById("member-2").style.background = "blue";
+            document.getElementById("member-3").style.background = "blue";
+            if(arr[0][0] == "member-2"){  
+                document.getElementById("winner").innerText = "Its Draw";
+            }
+        }
     }
-  }
-  getData();
-</script>
+</script>   
