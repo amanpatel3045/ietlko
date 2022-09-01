@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+</head>
+<body>
+    <section>
+        <input type="text" id="name" placeholder="enter name">
+        <input type="text" id="username" placeholder="enter username">
+        <input type="password" id="password" placeholder="enter password">
+<button onclick="addUser()">Signup</button>
+    </section>
+</body>
+</html>
+<script>
+    async function addUser(){
+        let user_data= {
+           
+            name : document.getElementById("name").value,
+            username : document.getElementById("username").value,
+            password : document.getElementById("password").value,
+        
+        }
+console.log(user_data);
+let res = await fetch("  http://localhost:3000/users",{
+    method:'POST',
+    body:JSON.stringify(user_data),
+    headers:{
+        'content-Type':"application/json"
+    }
+});
+   
+   let data = await res.json();
+   console.log(data);
+   
+   
+   }
+</script>
