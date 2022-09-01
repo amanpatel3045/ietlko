@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PhonePe</title>
+    <style>
+      h2 {
+        text-align: center;
+      }
+      button {
+        display: flex;
+        margin: auto;
+        padding: 10px;
+        width: 11.8%;
+      }
+      input {
+        margin-left: 665px;
+        border: 2px solid rgb(255, 0, 140);
+        padding: 7px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Enter Your OTP</h2>
+    <div id="phonePay">
+      <div id="inputBox">
+        <input id="inp" type="text" />
+        <button onclick="handle()" id="btn">Submit</button>
+      </div>
+    </div>
+    <h2 id="timer"></h2>
+  </body>
+  <script>
+    var loadinGif =
+      "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921";
+    var successGif =
+      "https://www.vogue.in/wp-content/themes/vogue/images/check-circle.gif";
+    var errorGif =
+      "https://media3.giphy.com/media/TqiwHbFBaZ4ti/200w.webp?cid=ecf05e47i4lpha3w5zftd5gil5i8fwtke7kapxnjr9ic0aem&rid=200w.webp&ct=g";
+
+    function handle() {
+      var val = document.getElementById("inp").value;
+      var phonePay = document.getElementById("phonePay");
+      phonePay.innerHTML = `<img src= ${loadinGif} alt="SuccessGIF" id="responseimgae"></img>`;
+      var myPromise = new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          if (val === "1234") {
+            resolve("Transaction Succesfull");
+          } else {
+            reject("Wrong password");
+          }
+        }, 2000);
+      });
+      myPromise
+        .then(function (res) {
+          var phonePay = document.getElementById("phonePay");
+          phonePay.innerHTML = `<img src= ${successGif} alt="SuccessGIF" id="responseimgae"></img>`;
+        })
+        .catch(function (err) {
+          var phonePay = document.getElementById("phonePay");
+          phonePay.innerHTML = `<img src= ${errorGif} alt="err" id="responseimgae"></img>`;
+        });
+    }
+  </script>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: url(https://images.unsplash.com/photo-1583621908511-e082803e3aa2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1580&q=80);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #ffd54e;
+        margin: 0;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .logo {
+        width: 97%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+
+        border-radius: 10px;
+        background-color: #da291c;
+      }
+
+      .items {
+        width: 30%;
+        margin-left: 20px;
+        text-align: center;
+        border-radius: 10px;
+        background-color: #27251f;
+        color: #da291c;
+      }
+
+      .logo > h1 {
+        display: inline;
+        margin: auto;
+        color: #ffd54e;
+      }
+
+      .items > div {
+        margin: 20px auto;
+        padding: 10px;
+        padding-left: 30px;
+        text-align: left;
+        color: #da291c;
+      }
+
+      button {
+        margin-bottom: 20px;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: none;
+        background-color: #ffd54e;
+        color: #27251f;
+        cursor: pointer;
+      }
+
+      .order {
+        position: relative;
+        text-align: center;
+        margin-right: 20px;
+        margin-left: auto;
+        width: 65%;
+        color: #da291c;
+        border-radius: 10px;
+        background-color: #27251f;
+      }
+
+      img {
+        border-radius: 10px;
+      }
+
+      #append > img {
+        margin: 40px 10px;
+      }
+
+      label {
+        color: #ffd54e;
+        font-size: 18px;
+      }
+
+      button:hover {
+        background-color: #be9f36;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="logo">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbVgTFkvjkYAi481i5mUUo_lHHUZT2EX3u-5c6dMv0&s"
+          alt=""
+        />
+        <h1>Welcome to McDonald's , feel free to place an Order</h1>
+      </div>
+      <div class="items">
+        <h3>Select An Item</h3>
+        <div>
+          <input id="1" type="checkbox" value="Spicy Crispy Chicken Sandwich" />
+          <label for="">Spicy Crispy Chicken Sandwich</label>
+        </div>
+
+        <div>
+          <input id="2" type="checkbox" value="Big Mac" />
+          <label for="">Big Mac</label>
+        </div>
+        <div>
+          <input id="3" type="checkbox" value="Chicken McNuggets" />
+          <label for="">Chicken McNuggets</label>
+        </div>
+        <div>
+          <input id="4" type="checkbox" value="World Famous Fries" />
+          <label for="">World Famous Fries</label>
+        </div>
+        <div>
+          <input id="5" type="checkbox" value="Iced Coffee" />
+          <label for="">Iced Coffee</label>
+        </div>
+        <div>
+          <input id="6" type="checkbox" value="Egg McMuffin" />
+          <label for="">Egg McMuffin</label>
+        </div>
+        <button id="submit">Order Food</button>
+      </div>
+      <div class="order">
+        <div>
+          <h2>Your Order Will Appear here</h2>
+        </div>
+        <div id="orderId"></div>
+        <div id="append"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    var items = [
+      {
+        name: "Spicy Crispy Chicken Sandwich",
+        image:
+          "https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-spicy-crispy-chicken-sandwich:1-4-product-tile-desktop",
+      },
+      {
+        name: "Big Mac",
+        image:
+          "https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-Big-Mac-1:1-4-product-tile-desktop",
+      },
+      {
+        name: "Chicken McNuggets",
+        image:
+          "https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-Chicken-McNuggets-4pc-1:1-4-product-tile-desktop",
+      },
+      {
+        name: "World Famous Fries",
+        image:
+          "https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-fries-small:1-4-product-tile-desktop",
+      },
+      {
+        name: "Iced Coffee",
+        image:
+          "https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-Premium-Roast-Iced-Coffee-Medium:1-4-product-tile-desktop",
+      },
+      {
+        name: "Egg McMuffin",
+        image:
+          "https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-Egg-McMuffin-1:1-4-product-tile-desktop",
+      },
+    ];
+
+    document.querySelector("#submit").addEventListener("click", placeOrder);
+
+    function placeOrder() {
+      document.getElementById("append").innerText = "";
+      document.getElementById("orderId").innerText = "";
+
+      let image = document.createElement("img");
+      image.src =
+        "https://images.squarespace-cdn.com/content/v1/54b870c1e4b0a17414b56dfd/1553273539976-JCSTCEZWLXO363SZ2S46/Enso-2.gif";
+      image.style.width = "300px";
+      document.getElementById("append").append(image);
+      var myPromise = new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          resolve("ORDER ID :- 000" + (Math.floor(Math.random() * 10) + 1));
+        }, 2000);
+      });
+
+      myPromise.then(function (orderid) {
+        document.getElementById("append").innerText = "";
+        let orderID = document.createElement("h4");
+        orderID.innerText = orderid;
+        orderID.style.position = "absolute";
+
+        orderID.style.right = "10px";
+        orderID.style.top = "0";
+        orderID.style.backgroundColor = "#DA291C";
+        orderID.style.padding = "10px";
+        orderID.style.color = "#27251F";
+        orderID.style.borderRadius = "5px";
+
+        document.querySelector("#orderId").append(orderID);
+
+        var input = document.querySelectorAll("input");
+
+        for (let i = 0; i < input.length; i++) {
+          if (input[i].checked == true) {
+            let newArr = items.filter(function (elem) {
+              return input[i].value == elem.name;
+            });
+
+            let image = document.createElement("img");
+            image.style.width = "auto ";
+            image.src = newArr[0].image;
+            document.getElementById("append").append(image);
+          }
+        }
+      });
+    }
+  </script>
+</html>
