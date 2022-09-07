@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signin.css"/>
+    <title>MynetDiary</title>
+    <style>
+        #signin__btn a{
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <a class="logo" title="mynetdiary"><img src="https://github.com/AbhinavRajSing/magnesium/blob/main/images/mynet.PNG?raw=true"/></a>
+        <div class="container__input">
+            <h1 class="heading">Sign In</h1>
+            <div class="mobileapp">
+                <i class="fas fa-mobile-alt fa-2x"></i>
+                <p>If you use one of MyNetDiary’s mobile apps, please sign in with the same account name<br/>
+                     or email as you do in your MyNetDiary mobile app. You can see account name on the<br/>
+                      Settings screen in the mobile app.</p>
+            </div>
+            <div class="inputsection">
+                <div class="inputsection__left">
+                    <input id="myemail" type="text" placeholder="Email or Account Name"/>
+                    <p id="emailerror"></p>
+                    <input id="mypassword" type="password" />
+                    <p id="passworderror"></p>
+                    <div class="checkbox">
+                    <input type="checkbox" />
+                    <p>Remember me on this computer</p>
+                    </div>
+                    <div class="button">
+                        <button id="signin__btn"> <a href="dashboard.html"> SIGN IN</a></button>
+                        <a style="color: #09B96B; font-weight: 600;" href="#">ForgotPassword?</a>
+                    </div>
+                </div>
+                <div class="inputsection__right">
+                    <a href=""><div class="facebook">
+                        <img style="height: 30px; width: 30px; border-radius: 5px;" src="https://www.flaticon.com/svg/static/icons/svg/1384/1384053.svg"/>
+                        <h4>SIGN IN WITH FACEBOOK</h4>
+                    </div></a>
+                <a href=""><div class="google">
+                        <img style="height: 25px; width: 25px;" src="https://www.flaticon.com/svg/static/icons/svg/281/281764.svg"/>
+                        <h4>SIGN IN WITH GOOGLE</h4>
+                    </div></a>
+                <a href=""><div class="apple">
+                        <img style="height: 30px;" src="data:image/png;base64,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"/>
+                        <h4>SIGN IN WITH APPLE</h4>
+                    </div></a>
+                </div>
+            </div>
+            <h3>No Account? <a style="color: #09B96B; font-weight: 600;" href="">Sign Up</a> it's easy</h3>
+        </div>
+        <div class="container__app">
+            <h2>Download Free MyNetDiary App</h2>
+            <div>
+                <img style="height: 50px;" src="https://s3.amazonaws.com/img.mynetdiary.com/images/app-store-badge.svg"/>
+                <img style="height: 50px;" src="https://s3.amazonaws.com/img.mynetdiary.com/images/google-play-badge.svg"/>
+            </div>
+            <div>
+                <i style="color:#FFA645;"class="fas fa-star fa-2x"></i>
+                <i style="color:#FFA645;"class="fas fa-star fa-2x"></i>
+                <i style="color:#FFA645;"class="fas fa-star fa-2x"></i>
+                <i style="color:#FFA645;"class="fas fa-star fa-2x"></i>
+                <i style="color:#FFA645;"class="fas fa-star-half fa-2x"></i>
+                
+            </div>
+            <h3>50,907 reviews & counting</h3>
+        </div>
+        
+    </div>
+    <div class="footer">
+        <h3>Copyright © 2020 MyNetDiary Inc. All rights reserved.</h3>
+        <div class="footer__link">
+            <a href=""><h3>Contact Us</h3></a>
+            <a href=""> <h3>FAQ</h3></a>
+            <a href=""><h3>Privacy</h3></a>
+            <a href=""><h3>Terms of Use</h3></a>
+        </div>
+    </div>
+</body>
+<script src="signin.js"></script>
+</html>

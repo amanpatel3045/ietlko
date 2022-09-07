@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MynetDiary</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            font-family: 'Roboto', sans-serif;
+        }
+    .container{
+        height: 1000px;
+        background: linear-gradient(to top,rgb(244,241,237) 47%,rgb(10,149,62) 20% );
+        display: flex; 
+        align-items: center; 
+    }
+    .main{
+        height:800px;
+        width:70%;
+        margin:15px auto;
+        border:ipx solid black;
+        background-color: white;
+        border-radius: 25px;
+    }
+    .main h1 {
+        font-size: 50px;
+        text-align: center;
+        padding-top: 0px;
+        color: rgb(38,143,208);
+    }
+    .image img{
+        margin-left: 330px;
+    }
+    .email button{
+        background-color:rgb(66,133,244) ;
+        width: 260PX;
+        height: 48PX;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 16px;
+        border-radius: 5px;
+        margin-left: 340px;
+        border-style: none;
+    }
+    .email button:hover{
+        transform: scale(1.03);
+        border-style: none;
+        outline: none;
+        box-shadow: 2px 2px 2px gray;
+    }
+    .email button:focus{
+        border-style: none;
+        outline: none;
+    }
+    .inputs input{
+        background: none;
+        border: none;
+        border-bottom: 1px solid gray;
+        width: 250px;
+        line-height: 50px;
+        margin-left: 340px;
+        font-size: 16px;
+        display: none;
+    }
+    .inputs input:focus{
+        outline: none;
+    }
+    .inputs input:hover{
+        transform: scale(1.05);
+    }
+    .inputs button{
+        width: 150px;
+        height: 40px;
+        background-color:rgb(66,133,244);
+        font-size: 18px;
+        /* font-weight: bold; */
+        margin-left: 380px;
+        margin-top: 20px;
+        border-radius: 5px;
+        display: none;
+      
+    }
+    .inputs button a{
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+    .inputs button:hover{
+        box-shadow: 2px 2px 2px gray;
+        transform: scale(1.02);
+    }
+
+   
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <img class= "head" src = "Screen Shot 2020-12-30 at 2.44.32 PM.png"/> -->
+        <div class= "main" id="main" >
+            <h1>Create Account</h1>
+            <div class="image">
+                <img src="https://github.com/AbhinavRajSing/magnesium/blob/main/images/signupOne%20scst.PNG?raw=true" alt="">
+            </div>
+
+            <div class="email" id="email_button">
+                <button class="btn" >CONTINUE WITH EMAIL</button>
+
+            </div>
+
+            <div class="inputs" id="inputs">
+                <input type="text" class="inp1" placeholder="Your First Name" id="first_name"> <br>
+                <input type="text"  id="email" placeholder="Enter Your Email" class="inp2"> <br>
+                <input type="password"  id="password" placeholder="Enter Your Password" class="inp3"> <br>
+                <button id="next_btn" ><a href="dashboard.html">NEXT</a></button>
+
+            </div>
+
+
+        </div>
+    </div>
+    <a href=""></a>
+
+    <script type="text/javascript">
+
+    var btn = document.getElementById('next_btn').addEventListener('click',SignUp)
+    var btn2 = document.getElementById('email_button').addEventListener('click',display_inputs)
+    // var btn3 = document.getElementById('next_btn').addEventListener('click',display_btn)
+    function SignUp(event){
+
+        var name = document.getElementById('first_name').value
+        var email = document.getElementById('email').value
+        var password = document.getElementById('password').value
+
+
+        if(name == "" || email == "" || password == ""){
+            alert("Name Or Email Or Password should not be Empty")
+        }
+        else{
+            localStorage.setItem("First_Name" , name)
+            localStorage.setItem("Email",email)
+            localStorage.setItem("Password",password)
+            window.location = "dashboard.html"   
+        }
+        event.preventDefault();
+    }
+
+    function display_inputs() {
+        var email_div1 = document.getElementById('first_name')
+        var email_div2 = document.getElementById('email')
+        var email_div3 = document.getElementById('password')
+        // console.log(email_div)
+        email_div1.style.display = "block"
+        email_div2.style.display = "block"
+        email_div3.style.display = "block"
+
+        var btn_div = document.getElementById('next_btn')
+        console.log(btn_div)
+        btn_div.style.display = "block"
+    }
+
+    
+
+
+
+    </script>
+
+            
+</body>
+</html>

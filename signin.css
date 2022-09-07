@@ -1,0 +1,205 @@
+.container{
+ background: linear-gradient(to top, #d8d6d4 50%,#079B41 20% );
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+.logo{
+    width: 250px;
+    display: block;
+    margin: auto;
+}
+.logo > img{
+   height: 70px;
+}
+.container__input{
+    width: 1000px;
+    margin: auto;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px 0;
+    
+}
+.heading{
+    color: #268FD0;
+    font-size: 45px;
+    
+}
+.container__input >h1{
+    text-align: center;
+}
+.mobileapp{
+    display: flex;
+    width: 650px;
+    height: 100px;
+    margin: auto;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+    padding:10px 25px;
+    background-color: #F7F5F2;
+
+}
+.checkbox{
+    display: flex;
+    align-items: center;
+}
+#signin__btn{
+    border: none;
+    padding:16px 30px;
+    background-color: #33B621;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 5px;
+}
+#signin__btn:hover{
+    background-color: #1e7e11;
+}
+.inputsection{
+    width: 650px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+.inputsection__left{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    justify-content: space-between;
+    width: 300px;
+}
+.button{
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    outline: none;
+}
+.button button:focus{
+    outline: none;
+}
+.button button:hover{
+    outline: none;
+}
+#myemail{
+    height: 50px;
+    width: 280px;
+    font-size: 18px;
+    padding-left: 10px;
+}
+#emailerror,#passworderror{
+    color: red;
+    font-size: 15px;
+}
+#myemail:focus{
+    outline:none;
+    border: 2px solid  #4285F4;
+    border-radius: 5px;
+}
+#mypassword:focus{
+    outline:none;
+    border: 2px solid  #4285F4;
+    border-radius: 5px;
+}
+#mypassword{
+    height: 50px;
+    width: 280px;
+    font-size: 18px;
+    padding-left: 10px;
+}
+.facebook{
+    display: flex;
+    height: 50px;
+    background-color: #4267B2;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    border-radius: 5px;
+    
+}
+.facebook:hover {
+    background-color: #1948a7;
+}
+.google:hover {
+    background-color: #4285F4 ;
+}
+.apple:hover {
+    background-color: rgb(36, 34, 34);
+}
+
+.google{
+    display: flex;
+    height: 50px;
+    background-color: #1059ce;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+    padding-right:  30px;
+    border-radius: 5px;
+}
+.google img{
+    padding-left: 15px;
+}
+.facebook img{
+    padding-top: 0px;
+}
+.apple{
+    display: flex;
+    height: 50px;
+    background-color: black;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    border-radius: 5px;
+    padding-right: 40px;
+}
+.inputsection__right{
+    width: 250px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.inputsection__right > a{
+    text-decoration: none;
+}
+.container__input >h3{
+    text-align: center;
+    margin-top: 50px;
+}
+.container__app{
+    height: 270px;
+    width: 350px;
+    margin:60px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+}
+.container__app > h2,h3{
+    color: #46618A;
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px 20px 10px;
+    align-items: center;
+}
+.footer__link{
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+}
+.footer__link > a,h3{
+    color:  #46618A;
+    text-decoration: none;
+}

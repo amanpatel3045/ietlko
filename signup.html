@@ -2,40 +2,163 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign up</title>
+    <title>MynetDiary</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+    <style>
+        body{
+            margin:0;
+            padding:0;
+        }
+    .container{
+        height: 1000px;
+        background: linear-gradient(to top,rgb(244,241,237) 47%,rgb(10,149,62) 20% );
+        display: flex; 
+        align-items: center; 
+       
+        /* border-radius: 0% 100% 48% 52% / 0% 0% 5% 6%;
+        clip-path: polygon(0 0, 18% 6%, 38% 9%, 61% 9%, 82% 6%, 100% 0, 100% 23%, 100% 55%, 100% 100%, 35% 100%, 0 100%, 0 48%); */
+    }
+    .main{
+        height:700px;
+        width:70%;
+        margin:15px auto;
+        border:ipx solid black;
+        background-color: white;
+        border-radius: 25px;
+    }
+    .head{
+        height:30px;
+        width:10%;
+        margin:10px
+    }
+    .h3{
+        font-size: 50px;
+        color:rgb(39,143,208);
+        font-family: 'Source Sans Pro', sans-serif;
+        text-align: center;
+    }
+    .current{
+        border:none;
+        text-decoration: underline;
+        width:70%;
+        margin:30px auto;
+        font-size: 15px;
+    }
+    .goal{
+        border:none;
+        text-decoration: underline;
+        width:70%;
+        margin:30px 0px 10px 0px;
+        font-size: 15px;
+    }
+    .input{
+        margin:5px auto;
+        width: 45%;
+        height:180px;
+        
+    }
+    .current:focus{
+        outline:none;
+    }
+    .goal:focus{
+        outline:none;
+    }
+    .unit{
+        font-size: 20px;
+        color:rgb(39,143,208);
+        font-family: 'Source Sans Pro', sans-serif;
+        text-align: center;
+    }
+    .pgs{
+        margin:5px 0px 10px 180px;
+
+    }
+    .prgs{
+        font-size: small;
+    }
+    .rdo{
+        margin:10px
+    }
+    .btn{
+        background-color:rgb(39,143,208) ;
+        border:none;
+        color:white;
+        font-weight: 600;
+        margin:20px;
+        width:100%;
+        height:40px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 2px #2e2e2d70  ,-2px -2px 2px #2e2e2d70 ;
+    }
+    .inbtn a{
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+    .btn:focus{
+        outline:none;
+    }
+    .btn:hover{
+        background-color: rgb(18, 74, 109);
+    }
+    .inbtn{
+        margin:10px auto;
+        width: 15%;
+        height:50px;
+    }
+    </style>
 </head>
 <body>
-    <section>
-        <input type="text" id="name" placeholder="enter name">
-        <input type="text" id="username" placeholder="enter username">
-        <input type="password" id="password" placeholder="enter password">
-<button onclick="addUser()">Signup</button>
-    </section>
+    <div class="container">
+        <!-- <img class= "head" src = "Screen Shot 2020-12-30 at 2.44.32 PM.png"/> -->
+        <div class= "main">
+            <h3 class="h3">Sign Up: Your Weight plan</h3>
+            <div class="input">
+                <input class="current" id = "current" type="text" placeholder="How much do u weigh?                               kg"/><br/>
+                <input class="goal" id = "goal" type="text" placeholder="What is your target weight?                          kg"/>
+                <div class= "unit">
+                    <p>Switch to English,(US) Unit(lb,lb)</p>
+                </div>
+            </div>
+            <div class="pgs">
+                <p class="prgs">Your Desired progress</p>
+                <div>
+                    <input class="rdo"type="radio" id="male" name="gender" value="male">Lose ½ kg/week</input><br/>
+                    <input class="rdo"type="radio" id="female" name="gender" value="female">Lose ¾ kg/week</input><br/>
+                    <input class="rdo"type="radio" id="female" name="gender" value="female">Lose 1 kg/week</input><br/>
+                </div>
+            </div>
+            <div class="inbtn">
+                <button class="btn" id="btn"   > <a href="signup_One.html">NEXT</a></button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+       var btn = document.getElementById("btn")
+        btn.addEventListener("click", alrt)
+       function alrt(){
+           var cw = document.getElementById("current").value;
+           var gl =  document.getElementById("goal").value;
+           if(cw !== null && gl !== null){
+               if(Number(cw)<Number(gl)){
+                    var diff = Number(gl)-Number(cw)
+                    alert("You have to gain "+diff + "kg according to the week")
+                   }
+                   else if((Number(cw)>Number(gl))){
+                    var diff1 = Number(cw)-Number(gl)
+                    alert("You have to loose "+diff1 + "kg according to the week")
+                   }
+               }
+            // else if(cw === null && gl === null){
+            //     alert("Enter the weights first")
+            // }
+        }
+              
+
+
+    </script>
 </body>
 </html>
-<script>
-    async function addUser(){
-        let user_data= {
-           
-            name : document.getElementById("name").value,
-            username : document.getElementById("username").value,
-            password : document.getElementById("password").value,
-        
-        }
-console.log(user_data);
-let res = await fetch("  http://localhost:3000/users",{
-    method:'POST',
-    body:JSON.stringify(user_data),
-    headers:{
-        'content-Type':"application/json"
-    }
-});
-   
-   let data = await res.json();
-   console.log(data);
-   
-   
-   }
-</script>
